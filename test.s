@@ -18,11 +18,26 @@ _main:
     lda #10             ; Load constant 10 into register A
     sta i               ; Store register A in memory at i
 
+    lda #7
+    sta j
+    lda #4
+    sta k
     ; TODO: Initialize j with 7 and k with 4.
 
     lda #0              ; A is now zero, but i is still 10
     lda i               ; Read i back from memory
+    clc
+    adc j
+    asl 
+
+    sec
+    sbc k
+    sta result
+    lda result
+    
+
     rts                 ; Return A to sim65
 
     ; Later, replace the final three instructions with
     ; the unfinished calculation shown in README.md.
+
